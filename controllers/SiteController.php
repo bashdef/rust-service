@@ -2,6 +2,9 @@
 
 namespace app\controllers;
 
+use app\models\Player;
+use app\models\PlayerStats;
+use app\models\SearchForm;
 use app\models\User;
 use Yii;
 use yii\filters\AccessControl;
@@ -63,7 +66,21 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        return $this->render('index');
+        $model = new SearchForm();
+        $searchPlayer = null;
+        $searchPlayerStats = null;
+        if (Yii::$app->request->isPost && $model->load(Yii::$app->request->post())){
+            $searchPlayer = Player::findOne(['persona_name' => $model->personaName]);
+
+            if($searchPlayer !== null){
+                $searchPlayerStats = PlayerStats::findOne(['steam_id' => $searchPlayer->steam_id]);
+            }
+        }
+        return $this->render('index', [
+            'model' => $model,
+            'searchPlayer' => $searchPlayer,
+            'searchPlayerStats' => $searchPlayerStats,
+        ]);
     }
 
     /**

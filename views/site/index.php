@@ -1,53 +1,51 @@
 <?php
+/** @var app\models\SearchForm $model */
 
-/** @var yii\web\View $this */
+use yii\widgets\ActiveForm;
+use yii\helpers\Html;
 
 $this->title = 'My Yii Application';
 ?>
-<div class="site-index">
-
-    <div class="jumbotron text-center bg-transparent mt-5 mb-5">
-        <h1 class="display-4">Congratulations!</h1>
-
-        <p class="lead">You have successfully created your Yii-powered application.</p>
-
-        <p><a class="btn btn-lg btn-success" href="https://www.yiiframework.com">Get started with Yii</a></p>
-    </div>
-
-    <div class="body-content">
-
-        <div class="row">
-            <div class="col-lg-4 mb-3">
-                <h2>Heading</h2>
-
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
-
-                <p><a class="btn btn-outline-secondary" href="https://www.yiiframework.com/doc/">Yii Documentation &raquo;</a></p>
-            </div>
-            <div class="col-lg-4 mb-3">
-                <h2>Heading</h2>
-
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
-
-                <p><a class="btn btn-outline-secondary" href="https://www.yiiframework.com/forum/">Yii Forum &raquo;</a></p>
-            </div>
-            <div class="col-lg-4">
-                <h2>Heading</h2>
-
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
-
-                <p><a class="btn btn-outline-secondary" href="https://www.yiiframework.com/extensions/">Yii Extensions &raquo;</a></p>
-            </div>
-        </div>
-
-    </div>
+<?php $form = ActiveForm::begin(['id' => 'steam-id-form']); ?>
+<?= $form->field($model, 'personaName')->textInput(['autofocus' => true]) ?>
+<div class="form-group">
+    <?= Html::submitButton('Search', ['class' => 'btn btn-primary', 'name' => 'search-button']) ?>
 </div>
+<?php ActiveForm::end(); ?>
+<?php if ($searchPlayer !== null): ?>
+    <div>
+        <h2>Найденный пользователь:</h2>
+        <pre>
+            Имя пользователя: <?= Html::encode($searchPlayer->persona_name) ?><br>
+            Аватарка: <img src="<?= Html::encode($searchPlayer->avatar) ?>" alt="Avatar">
+        </pre>
+    </div>
+<?php endif; ?>
+<?php if($searchPlayerStats !== null): ?>
+    <pre>
+            Смертей: <?= $searchPlayerStats->deaths ?><br>
+            Пуль выпущенно: <?= $searchPlayerStats->bullet_fired ?><br>
+            Стрел выпущенно: <?= $searchPlayerStats->arrow_fired ?><br>
+            Выброшено вещей: <?= $searchPlayerStats->item_drop ?><br>
+            Изучено рецептов: <?= $searchPlayerStats->blueprint_studied ?><br>
+            Смертей от суицида: <?= $searchPlayerStats->death_suicide ?><br>
+            Смертей от падения: <?= $searchPlayerStats->death_fall ?><br>
+            Убито игроков: <?= $searchPlayerStats->kill_player ?><br>
+            Попаданий пулей по игрокам: <?= $searchPlayerStats->bullet_hit_player ?><br>
+            Попаданий стрелой по игрокам: <?= $searchPlayerStats->arrow_hit_player ?><br>
+            Добыто камня: <?= $searchPlayerStats->harvested_stones ?><br>
+            Добыто ткани: <?= $searchPlayerStats->harvested_cloth ?><br>
+            Добыто дерева: <?= $searchPlayerStats->harvested_wood ?><br>
+            Добыто кожи: <?= $searchPlayerStats->harvested_leather ?><br>
+            Получено топлива низкого качества: <?= $searchPlayerStats->acquired_low_grade_fuel ?><br>
+            Получено железной руды: <?= $searchPlayerStats->acquired_metal_ore ?><br>
+            Получено скрапа: <?= $searchPlayerStats->acquired_scrap ?><br>
+            Убито медведей: <?= $searchPlayerStats->kill_bear ?><br>
+            Убито кабанов: <?= $searchPlayerStats->kill_boar ?><br>
+            Убито оленей: <?= $searchPlayerStats->kill_stag ?><br>
+            Убито куриц: <?= $searchPlayerStats->kill_chicken ?><br>
+            Убито волков: <?= $searchPlayerStats->kill_wolf ?><br>
+            Попаданий в голову: <?= $searchPlayerStats->headshot ?><br>
+            Разрушено бочек: <?= $searchPlayerStats->destroyed_barrels ?><br>
+        </pre>
+<?php endif; ?>
