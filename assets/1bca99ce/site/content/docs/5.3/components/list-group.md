@@ -428,7 +428,7 @@ triggerTabList.forEach(triggerEl => {
 You can activate individual list item in several ways:
 
 ```js
-const triggerEl = document.querySelector('#myTab a[href="#profile"]')
+const triggerEl = document.querySelector('#myTab a[href="#user"]')
 bootstrap.Tab.getInstance(triggerEl).show() // Select tab by name
 
 const triggerFirstTabEl = document.querySelector('#myTab li:first-child a')

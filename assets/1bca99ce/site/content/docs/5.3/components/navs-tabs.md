@@ -626,7 +626,7 @@ triggerTabList.forEach(triggerEl => {
 You can activate individual tabs in several ways:
 
 ```js
-const triggerEl = document.querySelector('#myTab button[data-bs-target="#profile"]')
+const triggerEl = document.querySelector('#myTab button[data-bs-target="#user"]')
 bootstrap.Tab.getInstance(triggerEl).show() // Select tab by name
 
 const triggerFirstTabEl = document.querySelector('#myTab li:first-child button')

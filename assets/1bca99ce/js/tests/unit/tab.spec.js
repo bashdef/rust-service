@@ -55,11 +55,11 @@ describe('Tab', () => {
         fixtureEl.innerHTML = [
           '<ul class="nav" role="tablist">',
           '  <li><button type="button" data-bs-target="#home" role="tab">Home</button></li>',
-          '  <li><button type="button" id="triggerProfile" data-bs-target="#profile" role="tab">Profile</button></li>',
+          '  <li><button type="button" id="triggerProfile" data-bs-target="#user" role="tab">Profile</button></li>',
           '</ul>',
           '<ul>',
           '  <li id="home" role="tabpanel"></li>',
-          '  <li id="profile" role="tabpanel"></li>',
+          '  <li id="user" role="tabpanel"></li>',
           '</ul>'
         ].join('')
 
@@ -67,7 +67,7 @@ describe('Tab', () => {
         const tab = new Tab(profileTriggerEl)
 
         profileTriggerEl.addEventListener('shown.bs.tab', () => {
-          expect(fixtureEl.querySelector('#profile')).toHaveClass('active')
+          expect(fixtureEl.querySelector('#user')).toHaveClass('active')
           expect(profileTriggerEl.getAttribute('aria-selected')).toEqual('true')
           resolve()
         })
@@ -81,11 +81,11 @@ describe('Tab', () => {
         fixtureEl.innerHTML = [
           '<ul class="nav" role="tablist">',
           '  <li><a href="#home" role="tab">Home</a></li>',
-          '  <li><a id="triggerProfile" href="#profile" role="tab">Profile</a></li>',
+          '  <li><a id="triggerProfile" href="#user" role="tab">Profile</a></li>',
           '</ul>',
           '<ul>',
           '  <li id="home" role="tabpanel"></li>',
-          '  <li id="profile" role="tabpanel"></li>',
+          '  <li id="user" role="tabpanel"></li>',
           '</ul>'
         ].join('')
 
@@ -93,7 +93,7 @@ describe('Tab', () => {
         const tab = new Tab(profileTriggerEl)
 
         profileTriggerEl.addEventListener('shown.bs.tab', () => {
-          expect(fixtureEl.querySelector('#profile')).toHaveClass('active')
+          expect(fixtureEl.querySelector('#user')).toHaveClass('active')
           expect(profileTriggerEl.getAttribute('aria-selected')).toEqual('true')
           resolve()
         })
@@ -107,11 +107,11 @@ describe('Tab', () => {
         fixtureEl.innerHTML = [
           '<ol class="nav nav-pills">',
           '  <li><button type="button" data-bs-target="#home" role="tab">Home</button></li>',
-          '  <li><button type="button" id="triggerProfile" href="#profile" role="tab">Profile</button></li>',
+          '  <li><button type="button" id="triggerProfile" href="#user" role="tab">Profile</button></li>',
           '</ol>',
           '<ol>',
           '  <li id="home" role="tabpanel"></li>',
-          '  <li id="profile" role="tabpanel"></li>',
+          '  <li id="user" role="tabpanel"></li>',
           '</ol>'
         ].join('')
 
@@ -119,7 +119,7 @@ describe('Tab', () => {
         const tab = new Tab(profileTriggerEl)
 
         profileTriggerEl.addEventListener('shown.bs.tab', () => {
-          expect(fixtureEl.querySelector('#profile')).toHaveClass('active')
+          expect(fixtureEl.querySelector('#user')).toHaveClass('active')
           resolve()
         })
 
@@ -132,11 +132,11 @@ describe('Tab', () => {
         fixtureEl.innerHTML = [
           '<nav class="nav">',
           '  <button type="button" data-bs-target="#home" role="tab">Home</button>',
-          '  <button type="button" id="triggerProfile" data-bs-target="#profile" role="tab">Profile</button>',
+          '  <button type="button" id="triggerProfile" data-bs-target="#user" role="tab">Profile</button>',
           '</nav>',
           '<div>',
           '  <div id="home" role="tabpanel"></div>',
-          '  <div id="profile" role="tabpanel"></div>',
+          '  <div id="user" role="tabpanel"></div>',
           '</div>'
         ].join('')
 
@@ -144,7 +144,7 @@ describe('Tab', () => {
         const tab = new Tab(profileTriggerEl)
 
         profileTriggerEl.addEventListener('shown.bs.tab', () => {
-          expect(fixtureEl.querySelector('#profile')).toHaveClass('active')
+          expect(fixtureEl.querySelector('#user')).toHaveClass('active')
           resolve()
         })
 
@@ -157,11 +157,11 @@ describe('Tab', () => {
         fixtureEl.innerHTML = [
           '<div class="list-group" role="tablist">',
           '  <button type="button" data-bs-target="#home" role="tab">Home</button>',
-          '  <button type="button" id="triggerProfile" data-bs-target="#profile" role="tab">Profile</button>',
+          '  <button type="button" id="triggerProfile" data-bs-target="#user" role="tab">Profile</button>',
           '</div>',
           '<div>',
           '  <div id="home" role="tabpanel"></div>',
-          '  <div id="profile" role="tabpanel"></div>',
+          '  <div id="user" role="tabpanel"></div>',
           '</div>'
         ].join('')
 
@@ -169,7 +169,7 @@ describe('Tab', () => {
         const tab = new Tab(profileTriggerEl)
 
         profileTriggerEl.addEventListener('shown.bs.tab', () => {
-          expect(fixtureEl.querySelector('#profile')).toHaveClass('active')
+          expect(fixtureEl.querySelector('#user')).toHaveClass('active')
           resolve()
         })
 
@@ -245,11 +245,11 @@ describe('Tab', () => {
         fixtureEl.innerHTML = [
           '<ul class="nav nav-tabs" role="tablist">',
           '  <li class="nav-item" role="presentation"><button type="button" data-bs-target="#home" class="nav-link active" role="tab" aria-selected="true">Home</button></li>',
-          '  <li class="nav-item" role="presentation"><button type="button" data-bs-target="#profile" class="nav-link" role="tab">Profile</button></li>',
+          '  <li class="nav-item" role="presentation"><button type="button" data-bs-target="#user" class="nav-link" role="tab">Profile</button></li>',
           '</ul>',
           '<div class="tab-content">',
           '  <div class="tab-pane active" id="home" role="tabpanel"></div>',
-          '  <div class="tab-pane" id="profile" role="tabpanel"></div>',
+          '  <div class="tab-pane" id="user" role="tabpanel"></div>',
           '</div>'
         ].join('')
 
@@ -273,11 +273,11 @@ describe('Tab', () => {
         fixtureEl.innerHTML = [
           '<ul class="nav nav-tabs" role="tablist">',
           '  <li class="nav-item" role="presentation"><button type="button" data-bs-target="#home" class="nav-link active" role="tab" aria-selected="true">Home</button></li>',
-          '  <li class="nav-item" role="presentation"><button type="button" id="triggerProfile" data-bs-target="#profile" class="nav-link" role="tab">Profile</button></li>',
+          '  <li class="nav-item" role="presentation"><button type="button" id="triggerProfile" data-bs-target="#user" class="nav-link" role="tab">Profile</button></li>',
           '</ul>',
           '<div class="tab-content">',
           '  <div class="tab-pane active" id="home" role="tabpanel"></div>',
-          '  <div class="tab-pane" id="profile" role="tabpanel"></div>',
+          '  <div class="tab-pane" id="user" role="tabpanel"></div>',
           '</div>'
         ].join('')
 
@@ -304,7 +304,7 @@ describe('Tab', () => {
         fixtureEl.innerHTML = [
           '<ul class="nav" role="tablist">',
           '  <li><button type="button" data-bs-target="#home" role="tab">Home</button></li>',
-          '  <li><button type="button" data-bs-target="#profile" role="tab">Profile</button></li>',
+          '  <li><button type="button" data-bs-target="#user" role="tab">Profile</button></li>',
           '</ul>'
         ].join('')
 
@@ -319,12 +319,12 @@ describe('Tab', () => {
 
         triggerList[0].addEventListener('hide.bs.tab', ev => {
           hideCalled = true
-          expect(ev.relatedTarget.getAttribute('data-bs-target')).toEqual('#profile')
+          expect(ev.relatedTarget.getAttribute('data-bs-target')).toEqual('#user')
         })
 
         triggerList[0].addEventListener('hidden.bs.tab', ev => {
           expect(hideCalled).toBeTrue()
-          expect(ev.relatedTarget.getAttribute('data-bs-target')).toEqual('#profile')
+          expect(ev.relatedTarget.getAttribute('data-bs-target')).toEqual('#user')
           resolve()
         })
 
@@ -337,7 +337,7 @@ describe('Tab', () => {
         fixtureEl.innerHTML = [
           '<ul class="nav" role="tablist">',
           '  <li><button type="button" data-bs-target="#home" role="tab">Home</button></li>',
-          '  <li><button type="button" data-bs-target="#profile" role="tab">Profile</button></li>',
+          '  <li><button type="button" data-bs-target="#user" role="tab">Profile</button></li>',
           '</ul>'
         ].join('')
 
@@ -373,7 +373,7 @@ describe('Tab', () => {
         fixtureEl.innerHTML = [
           '<ul class="nav nav-tabs" role="tablist">',
           '  <li class="nav-item" role="presentation">',
-          '    <a class="nav-link nav-tab" href="#profile" role="tab" data-bs-toggle="tab">',
+          '    <a class="nav-link nav-tab" href="#user" role="tab" data-bs-toggle="tab">',
           '      <button class="btn-close" aria-label="Close"></button>',
           '    </a>',
           '  </li>',
@@ -389,7 +389,7 @@ describe('Tab', () => {
           '  </li>',
           '</ul>',
           '<div class="tab-content">',
-          '  <div role="tabpanel" class="tab-pane fade show active" id="profile">test 1</div>',
+          '  <div role="tabpanel" class="tab-pane fade show active" id="user">test 1</div>',
           '  <div role="tabpanel" class="tab-pane fade" id="buzz">test 2</div>',
           '  <div role="tabpanel" class="tab-pane fade" id="references">test 3</div>',
           '</div>'
@@ -424,11 +424,11 @@ describe('Tab', () => {
         fixtureEl.innerHTML = [
           '<ul class="nav" role="tablist">',
           '  <li><button type="button" id="home" data-bs-target="#home" role="tab">Home</button></li>',
-          '  <li><button type="button" id="triggerProfile" data-bs-target="#profile" role="tab">Profile</button></li>',
+          '  <li><button type="button" id="triggerProfile" data-bs-target="#user" role="tab">Profile</button></li>',
           '</ul>',
           '<ul>',
           '  <li id="home" role="tabpanel"></li>',
-          '  <li id="profile" role="tabpanel"></li>',
+          '  <li id="user" role="tabpanel"></li>',
           '</ul>'
         ].join('')
 
@@ -929,11 +929,11 @@ describe('Tab', () => {
         fixtureEl.innerHTML = [
           '<ul class="nav nav-tabs" role="tablist">',
           '  <li class="nav-item" role="presentation"><button type="button" data-bs-target="#home" class="nav-link active" role="tab" aria-selected="true">Home</button></li>',
-          '  <li class="nav-item" role="presentation"><button type="button" id="triggerProfile" data-bs-toggle="tab" data-bs-target="#profile" class="nav-link" role="tab">Profile</button></li>',
+          '  <li class="nav-item" role="presentation"><button type="button" id="triggerProfile" data-bs-toggle="tab" data-bs-target="#user" class="nav-link" role="tab">Profile</button></li>',
           '</ul>',
           '<div class="tab-content">',
           '  <div class="tab-pane active" id="home" role="tabpanel"></div>',
-          '  <div class="tab-pane" id="profile" role="tabpanel"></div>',
+          '  <div class="tab-pane" id="user" role="tabpanel"></div>',
           '</div>'
         ].join('')
 
@@ -941,7 +941,7 @@ describe('Tab', () => {
 
         secondTabTrigger.addEventListener('shown.bs.tab', () => {
           expect(secondTabTrigger).toHaveClass('active')
-          expect(fixtureEl.querySelector('#profile')).toHaveClass('active')
+          expect(fixtureEl.querySelector('#user')).toHaveClass('active')
           resolve()
         })
 
@@ -953,7 +953,7 @@ describe('Tab', () => {
       fixtureEl.innerHTML = [
         '<ul class="nav nav-tabs">',
         '  <li class="nav-item"><a class="nav-link" href="#home" data-bs-toggle="tab">Home</a></li>',
-        '  <li class="nav-item"><a class="nav-link" href="#profile" data-bs-toggle="tab">Profile</a></li>',
+        '  <li class="nav-item"><a class="nav-link" href="#user" data-bs-toggle="tab">Profile</a></li>',
         '  <li class="nav-item dropdown">',
         '    <a class="nav-link dropdown-toggle active" data-bs-toggle="dropdown" href="#">Dropdown</a>',
         '    <div class="dropdown-menu">',
@@ -1011,7 +1011,7 @@ describe('Tab', () => {
       fixtureEl.innerHTML = [
         '<ul class="nav nav-tabs">',
         '  <li class="nav-item"><a class="nav-link active" href="#home" data-bs-toggle="tab">Home</a></li>',
-        '  <li class="nav-item"><a class="nav-link" href="#profile" data-bs-toggle="tab">Profile</a></li>',
+        '  <li class="nav-item"><a class="nav-link" href="#user" data-bs-toggle="tab">Profile</a></li>',
         '  <li class="nav-item dropdown">',
         '    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#">Dropdown</a>',
         '    <ul class="dropdown-menu">',
@@ -1042,7 +1042,7 @@ describe('Tab', () => {
           '  <div class="tab-pane" id="x-tab1" role="tabpanel">',
           '    <nav class="nav nav-tabs" role="tablist">',
           '      <button type="button" data-bs-target="#nested-tab1" class="nav-link active" data-bs-toggle="tab" role="tab" aria-controls="x-tab1" aria-selected="true">Nested Tab 1</button>',
-          '      <button type="button" id="tabNested2" data-bs-target="#nested-tab2" class="nav-link" data-bs-toggle="tab" role="tab" aria-controls="x-profile">Nested Tab2</button>',
+          '      <button type="button" id="tabNested2" data-bs-target="#nested-tab2" class="nav-link" data-bs-toggle="tab" role="tab" aria-controls="x-user">Nested Tab2</button>',
           '    </nav>',
           '    <div class="tab-content">',
           '      <div class="tab-pane active" id="nested-tab1" role="tabpanel">Nested Tab1 Content</div>',
@@ -1077,17 +1077,17 @@ describe('Tab', () => {
         fixtureEl.innerHTML = [
           '<ul class="nav nav-tabs" role="tablist">',
           '  <li class="nav-item" role="presentation"><button type="button" id="tab-home" data-bs-target="#home" class="nav-link" data-bs-toggle="tab" role="tab">Home</button></li>',
-          '  <li class="nav-item" role="presentation"><button type="button" id="tab-profile" data-bs-target="#profile" class="nav-link" data-bs-toggle="tab" role="tab">Profile</button></li>',
+          '  <li class="nav-item" role="presentation"><button type="button" id="tab-user" data-bs-target="#user" class="nav-link" data-bs-toggle="tab" role="tab">Profile</button></li>',
           '</ul>',
           '<div class="tab-content">',
           '  <div class="tab-pane fade" id="home" role="tabpanel"></div>',
-          '  <div class="tab-pane fade" id="profile" role="tabpanel"></div>',
+          '  <div class="tab-pane fade" id="user" role="tabpanel"></div>',
           '</div>'
         ].join('')
 
-        const triggerTabProfileEl = fixtureEl.querySelector('#tab-profile')
+        const triggerTabProfileEl = fixtureEl.querySelector('#tab-user')
         const triggerTabHomeEl = fixtureEl.querySelector('#tab-home')
-        const tabProfileEl = fixtureEl.querySelector('#profile')
+        const tabProfileEl = fixtureEl.querySelector('#user')
         const tabHomeEl = fixtureEl.querySelector('#home')
 
         triggerTabHomeEl.addEventListener('shown.bs.tab', () => {
@@ -1122,12 +1122,12 @@ describe('Tab', () => {
           '    <button type="button" class="nav-link nav-tab" data-bs-target="#home" role="tab" data-bs-toggle="tab">Home</button>',
           '  </li>',
           '  <li class="nav-item" role="presentation">',
-          '    <button type="button" id="secondNav" class="nav-link nav-tab" data-bs-target="#profile" role="tab" data-bs-toggle="tab">Profile</button>',
+          '    <button type="button" id="secondNav" class="nav-link nav-tab" data-bs-target="#user" role="tab" data-bs-toggle="tab">Profile</button>',
           '  </li>',
           '</ul>',
           '<div class="tab-content">',
           '  <div role="tabpanel" class="tab-pane" id="home">test 1</div>',
-          '  <div role="tabpanel" class="tab-pane" id="profile">test 2</div>',
+          '  <div role="tabpanel" class="tab-pane" id="user">test 2</div>',
           '</div>'
         ].join('')
 
@@ -1150,12 +1150,12 @@ describe('Tab', () => {
           '    <button type="button" class="nav-link nav-tab" data-bs-target="#home" role="tab" data-bs-toggle="tab">Home</button>',
           '  </li>',
           '  <li class="nav-item" role="presentation">',
-          '    <button type="button" id="secondNav" class="nav-link nav-tab" data-bs-target="#profile" role="tab" data-bs-toggle="tab">Profile</button>',
+          '    <button type="button" id="secondNav" class="nav-link nav-tab" data-bs-target="#user" role="tab" data-bs-toggle="tab">Profile</button>',
           '  </li>',
           '</ul>',
           '<div class="tab-content">',
           '  <div role="tabpanel" class="tab-pane fade" id="home">test 1</div>',
-          '  <div role="tabpanel" class="tab-pane fade" id="profile">test 2</div>',
+          '  <div role="tabpanel" class="tab-pane fade" id="user">test 2</div>',
           '</div>'
         ].join('')
 
@@ -1199,11 +1199,11 @@ describe('Tab', () => {
         fixtureEl.innerHTML = [
           '<ul class="nav nav-tabs" role="tablist">',
           '  <li class="nav-item" role="presentation"><button type="button" data-bs-target="#home" class="nav-link active" role="tab" aria-selected="true">Home</button></li>',
-          '  <li class="nav-item" role="presentation"><button type="button" data-bs-target="#profile" class="nav-link" disabled role="tab">Profile</button></li>',
+          '  <li class="nav-item" role="presentation"><button type="button" data-bs-target="#user" class="nav-link" disabled role="tab">Profile</button></li>',
           '</ul>',
           '<div class="tab-content">',
           '  <div class="tab-pane active" id="home" role="tabpanel"></div>',
-          '  <div class="tab-pane" id="profile" role="tabpanel"></div>',
+          '  <div class="tab-pane" id="user" role="tabpanel"></div>',
           '</div>'
         ].join('')
 
@@ -1225,11 +1225,11 @@ describe('Tab', () => {
         fixtureEl.innerHTML = [
           '<ul class="nav nav-tabs" role="tablist">',
           '  <li class="nav-item" role="presentation"><a href="#home" class="nav-link active" role="tab" aria-selected="true">Home</a></li>',
-          '  <li class="nav-item" role="presentation"><a href="#profile" class="nav-link disabled" role="tab">Profile</a></li>',
+          '  <li class="nav-item" role="presentation"><a href="#user" class="nav-link disabled" role="tab">Profile</a></li>',
           '</ul>',
           '<div class="tab-content">',
           '  <div class="tab-pane active" id="home" role="tabpanel"></div>',
-          '  <div class="tab-pane" id="profile" role="tabpanel"></div>',
+          '  <div class="tab-pane" id="user" role="tabpanel"></div>',
           '</div>'
         ].join('')
 

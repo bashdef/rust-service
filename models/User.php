@@ -21,6 +21,7 @@ use yii\web\IdentityInterface;
  * @property integer $created_at
  * @property integer $updated_at
  * @property string $password write-only password
+ * @property string $steam_id
  */
 class User extends ActiveRecord implements IdentityInterface
 {
@@ -51,6 +52,7 @@ class User extends ActiveRecord implements IdentityInterface
     public function rules()
     {
         return [
+            ['steam_id', 'string', 'max' => 255],
             ['status', 'default', 'value' => self::STATUS_ACTIVE],
             ['status', 'in', 'range' => [self::STATUS_ACTIVE, self::STATUS_DELETED]],
         ];

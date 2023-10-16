@@ -12,8 +12,13 @@ $config = [
         '@npm'   => '@vendor/npm-asset',
     ],
     'components' => [
+        'session' => [
+            'class' => 'yii\web\Session',
+        ],
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
+            'enableCookieValidation' => true,
+            'enableCsrfValidation' => true,
             'cookieValidationKey' => 'u9ZqL3tQJV97MkK9w535b4rZbRy1-I7a',
         ],
         'cache' => [
