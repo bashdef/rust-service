@@ -6,7 +6,6 @@ use app\models\Player;
 use app\models\SteamIdForm;
 use GuzzleHttp\Exception\GuzzleException;
 use Yii;
-use yii\helpers\Console;
 use yii\web\Controller;
 use GuzzleHttp\Client;
 use app\models\PlayerStats;
