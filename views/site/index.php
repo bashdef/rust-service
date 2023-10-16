@@ -4,12 +4,12 @@
 use yii\widgets\ActiveForm;
 use yii\helpers\Html;
 
-$this->title = 'My Yii Application';
+$this->title = 'Главная';
 ?>
 <?php $form = ActiveForm::begin(['id' => 'steam-id-form']); ?>
 <?= $form->field($model, 'personaName')->textInput(['autofocus' => true]) ?>
 <div class="form-group">
-    <?= Html::submitButton('Search', ['class' => 'btn btn-primary', 'name' => 'search-button']) ?>
+    <?= Html::submitButton('Найти', ['class' => 'btn btn-primary', 'name' => 'search-button']) ?>
 </div>
 <?php ActiveForm::end(); ?>
 <?php if ($searchPlayer !== null): ?>

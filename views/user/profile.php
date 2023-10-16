@@ -5,7 +5,7 @@
 use yii\helpers\Html;
 use yii\bootstrap5\ActiveForm;
 
-$this->title = 'User Profile';
+$this->title = 'Профиль';
 ?>
 <h1>Профиль пользователя</h1>
 <p>Логин: <?= Html::encode($user->username) ?></p>
@@ -14,7 +14,7 @@ $this->title = 'User Profile';
     <?php $form = ActiveForm::begin(['id' => 'steam-id-form']); ?>
     <?= $form->field($model, 'steamId')->textInput(['autofocus' => true]) ?>
     <div class="form-group">
-        <?= Html::submitButton('Save Steam ID', ['class' => 'btn btn-primary', 'name' => 'steam-id-button']) ?>
+        <?= Html::submitButton('Сохранить Steam ID', ['class' => 'btn btn-primary', 'name' => 'steam-id-button']) ?>
     </div>
     <?php ActiveForm::end(); ?>
 <?php endif; ?>

@@ -5,13 +5,13 @@
 use yii\widgets\ActiveForm;
 use yii\helpers\Html;
 
-$this->title = 'Player Index';
+$this->title = 'Просмотр статистики';
 ?>
 
 <div>
     <?php $form = ActiveForm::begin(); ?>
     <?= $form->field($model, 'steamId')->textInput(['id' => 'steamIdInput']) ?>
-    <?= Html::submitButton('Get Steam User Data', ['class' => 'btn btn-primary']) ?>
+    <?= Html::submitButton('Получить статистику', ['class' => 'btn btn-primary']) ?>
     <?php ActiveForm::end(); ?>
 </div>
 
