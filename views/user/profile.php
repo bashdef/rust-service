@@ -6,52 +6,132 @@ use yii\helpers\Html;
 use yii\bootstrap5\ActiveForm;
 
 $this->title = 'Профиль';
+
+$avatarStyle = 'max-width: 100%; border-radius: 50%;';
+$playerInfoStyle = 'margin-left: 20px;';
 ?>
 <h1>Профиль пользователя</h1>
-<p>Логин: <?= Html::encode($user->username) ?></p>
-<p>Steam ID: <?= Html::encode($user->steam_id) ?></p>
 <?php if (!$user->steam_id): ?>
     <?php $form = ActiveForm::begin(['id' => 'steam-id-form']); ?>
-    <?= $form->field($model, 'steamId')->textInput(['autofocus' => true]) ?>
+    <?= $form->field($model, 'steamId')->label(false)->textInput(['autofocus' => true, 'placeholder' => 'Введите свой Steam ID']) ?>
     <div class="form-group">
         <?= Html::submitButton('Сохранить Steam ID', ['class' => 'btn btn-primary', 'name' => 'steam-id-button']) ?>
     </div>
     <?php ActiveForm::end(); ?>
 <?php endif; ?>
 <?php if ($savedDataPlayer !== null): ?>
-    <div>
-        <h2>Данные пользователя из Steam:</h2>
-        <pre>
-            Имя пользователя: <?= Html::encode($savedDataPlayer->persona_name) ?><br>
-            Аватарка: <img src="<?= Html::encode($savedDataPlayer->avatar) ?>" alt="Avatar">
-        </pre>
+    <div class="player-info">
+        <img src="<?= Html::encode($savedDataPlayer->avatar) ?>" alt="Avatar" style="<?= $avatarStyle ?>">
+        <div style="<?= $playerInfoStyle ?>">
+            <p>Имя пользователя: <?= Html::encode($savedDataPlayer->persona_name) ?></p>
+            <p>Логин: <?= Html::encode($user->username) ?></p>
+            <p>Steam ID: <?= Html::encode($user->steam_id) ?></p>
+        </div>
     </div>
 <?php endif; ?>
-<?php if($savedDataPlayerStats !== null): ?>
-    <pre>
-            Смертей: <?= $savedDataPlayerStats->deaths ?><br>
-            Пуль выпущенно: <?= $savedDataPlayerStats->bullet_fired ?><br>
-            Стрел выпущенно: <?= $savedDataPlayerStats->arrow_fired ?><br>
-            Выброшено вещей: <?= $savedDataPlayerStats->item_drop ?><br>
-            Изучено рецептов: <?= $savedDataPlayerStats->blueprint_studied ?><br>
-            Смертей от суицида: <?= $savedDataPlayerStats->death_suicide ?><br>
-            Смертей от падения: <?= $savedDataPlayerStats->death_fall ?><br>
-            Убито игроков: <?= $savedDataPlayerStats->kill_player ?><br>
-            Попаданий пулей по игрокам: <?= $savedDataPlayerStats->bullet_hit_player ?><br>
-            Попаданий стрелой по игрокам: <?= $savedDataPlayerStats->arrow_hit_player ?><br>
-            Добыто камня: <?= $savedDataPlayerStats->harvested_stones ?><br>
-            Добыто ткани: <?= $savedDataPlayerStats->harvested_cloth ?><br>
-            Добыто дерева: <?= $savedDataPlayerStats->harvested_wood ?><br>
-            Добыто кожи: <?= $savedDataPlayerStats->harvested_leather ?><br>
-            Получено топлива низкого качества: <?= $savedDataPlayerStats->acquired_low_grade_fuel ?><br>
-            Получено железной руды: <?= $savedDataPlayerStats->acquired_metal_ore ?><br>
-            Получено скрапа: <?= $savedDataPlayerStats->acquired_scrap ?><br>
-            Убито медведей: <?= $savedDataPlayerStats->kill_bear ?><br>
-            Убито кабанов: <?= $savedDataPlayerStats->kill_boar ?><br>
-            Убито оленей: <?= $savedDataPlayerStats->kill_stag ?><br>
-            Убито куриц: <?= $savedDataPlayerStats->kill_chicken ?><br>
-            Убито волков: <?= $savedDataPlayerStats->kill_wolf ?><br>
-            Попаданий в голову: <?= $savedDataPlayerStats->headshot ?><br>
-            Разрушено бочек: <?= $savedDataPlayerStats->destroyed_barrels ?><br>
-        </pre>
+<?php if ($savedDataPlayerStats !== null): ?>
+    <div class="player-stats">
+        <table>
+            <tr>
+                <th>Параметр</th>
+                <th>Значение</th>
+            </tr>
+            <tr>
+                <td>Смертей</td>
+                <td><?= $savedDataPlayerStats->deaths ?></td>
+            </tr>
+            <tr>
+                <td>Пуль выпущенно</td>
+                <td><?= $savedDataPlayerStats->bullet_fired ?></td>
+            </tr>
+            <tr>
+                <td>Стрел выпущенно</td>
+                <td><?= $savedDataPlayerStats->arrow_fired ?></td>
+            </tr>
+            <tr>
+                <td>Выброшено вещей</td>
+                <td><?= $savedDataPlayerStats->item_drop ?></td>
+            </tr>
+            <tr>
+                <td>Изучено рецептов</td>
+                <td><?= $savedDataPlayerStats->blueprint_studied ?></td>
+            </tr>
+            <tr>
+                <td>Смертей от суицида</td>
+                <td><?= $savedDataPlayerStats->death_suicide ?></td>
+            </tr>
+            <tr>
+                <td>Смертей от падения</td>
+                <td><?= $savedDataPlayerStats->death_fall ?></td>
+            </tr>
+            <tr>
+                <td>Убито игроков</td>
+                <td><?= $savedDataPlayerStats->kill_player ?></td>
+            </tr>
+            <tr>
+                <td>Попаданий пулей по игрокам</td>
+                <td><?= $savedDataPlayerStats->bullet_hit_player ?></td>
+            </tr>
+            <tr>
+                <td>Попаданий стрелой по игрокам</td>
+                <td><?= $savedDataPlayerStats->arrow_hit_player ?></td>
+            </tr>
+            <tr>
+                <td>Добыто камня</td>
+                <td><?= $savedDataPlayerStats->harvested_stones ?></td>
+            </tr>
+            <tr>
+                <td>Добыто ткани</td>
+                <td><?= $savedDataPlayerStats->harvested_cloth ?></td>
+            </tr>
+            <tr>
+                <td>Добыто дерева</td>
+                <td><?= $savedDataPlayerStats->harvested_wood ?></td>
+            </tr>
+            <tr>
+                <td>Добыто кожи</td>
+                <td><?= $savedDataPlayerStats->harvested_leather ?></td>
+            </tr>
+            <tr>
+                <td>Получено топлива низкого качества</td>
+                <td><?= $savedDataPlayerStats->acquired_low_grade_fuel ?></td>
+            </tr>
+            <tr>
+                <td>Получено железной руды</td>
+                <td><?= $savedDataPlayerStats->acquired_metal_ore ?></td>
+            </tr>
+            <tr>
+                <td>Получено скрапа</td>
+                <td><?= $savedDataPlayerStats->acquired_scrap ?></td>
+            </tr>
+            <tr>
+                <td>Убито медведей</td>
+                <td><?= $savedDataPlayerStats->kill_bear ?></td>
+            </tr>
+            <tr>
+                <td>Убито кабанов</td>
+                <td><?= $savedDataPlayerStats->kill_boar ?></td>
+            </tr>
+            <tr>
+                <td>Убито оленей</td>
+                <td><?= $savedDataPlayerStats->kill_stag ?></td>
+            </tr>
+            <tr>
+                <td>Убито куриц</td>
+                <td><?= $savedDataPlayerStats->kill_chicken ?></td>
+            </tr>
+            <tr>
+                <td>Убито волков</td>
+                <td><?= $savedDataPlayerStats->kill_wolf ?></td>
+            </tr>
+            <tr>
+                <td>Попаданий в голову</td>
+                <td><?= $savedDataPlayerStats->headshot ?></td>
+            </tr>
+            <tr>
+                <td>Разрушено бочек</td>
+                <td><?= $savedDataPlayerStats->destroyed_barrels ?></td>
+            </tr>
+        </table>
+    </div>
 <?php endif; ?>

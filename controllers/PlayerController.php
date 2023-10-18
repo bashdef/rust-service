@@ -47,4 +47,24 @@ class PlayerController extends Controller
             'savedDataPlayerStats' => $savedDataPlayerStats,
         ]);
     }
+
+    public function actionPlayerList()
+    {
+        $players = Player::find()->all();
+
+        return $this->render('player-list', [
+            'players' => $players,
+        ]);
+    }
+
+    public function actionPlayerDetails($steamId)
+    {
+        $player = Player::findOne(['steam_id' => $steamId]);
+        $playerStats = PlayerStats::findOne(['steam_id' => $steamId]);
+
+        return $this->render('player-details', [
+            'player' => $player,
+            'playerStats' => $playerStats,
+        ]);
+    }
 }

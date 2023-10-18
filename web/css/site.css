@@ -1,3 +1,9 @@
+body {
+    background-color: #111;
+    font-family: 'Prosto One', sans-serif;
+    color: #fff;
+}
+
 main > .container {
     padding: 70px 15px 20px;
 }
@@ -85,4 +91,49 @@ a.desc:after {
 
 .form-group {
     margin-bottom: 1rem;
+}
+
+.player-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; /* Расстояние между игроками */
+}
+
+.player-item {
+    text-align: center;
+    color: #fff; /* Цвет текста */
+    background-color: #333; /* Цвет фона */
+    padding: 10px;
+    border-radius: 8px;
+    width: calc(20% - 20px); /* Ширина элемента, 20% минус 20px расстояния */
+    box-sizing: border-box;
+}
+
+.player-item img {
+    max-width: 100%;
+    border-radius: 50%;
+}
+
+.player-info {
+    display: flex;
+    align-items: center;
+}
+
+.player-stats {
+    margin-top: 20px;
+}
+
+.player-stats table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.player-stats td, .player-stats th {
+    padding: 8px;
+    text-align: left;
+}
+
+.player-stats th {
+    background-color: #333;
+    color: #fff;
 }

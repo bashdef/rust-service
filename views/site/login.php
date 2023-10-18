@@ -14,8 +14,6 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class="site-login">
     <h1><?= Html::encode($this->title) ?></h1>
 
-    <p>Заполните поля для авторизации:</p>
-
     <div class="row">
         <div class="col-lg-5">
 
@@ -28,14 +26,10 @@ $this->params['breadcrumbs'][] = $this->title;
                     'errorOptions' => ['class' => 'col-lg-7 invalid-feedback'],
                 ],
             ]); ?>
-
-            <?= $form->field($model, 'username')->textInput(['autofocus' => true]) ?>
-
-            <?= $form->field($model, 'password')->passwordInput() ?>
-
-            <?= $form->field($model, 'rememberMe')->checkbox([
-                'template' => "<div class=\"custom-control custom-checkbox\">{input} {label}</div>\n<div class=\"col-lg-8\">{error}</div>",
-            ]) ?>
+            <h3>Логин</h3>
+            <?= $form->field($model, 'username')->label(false)->textInput(['autofocus' => true, 'placeholder' => 'Введите свой логин']) ?>
+            <h3>Пароль</h3>
+            <?= $form->field($model, 'password')->label(false)->passwordInput(['placeholder' => 'Введите свой пароль']) ?>
 
             <div class="form-group">
                 <div>
