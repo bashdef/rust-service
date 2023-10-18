@@ -72,6 +72,9 @@ class SiteController extends Controller
 
             if($searchPlayer !== null){
                 $searchPlayerStats = PlayerStats::findOne(['steam_id' => $searchPlayer->steam_id]);
+                if($searchPlayerStats == null){
+                    $searchPlayerStats = 1;
+                }
             }
         }
         return $this->render('index', [

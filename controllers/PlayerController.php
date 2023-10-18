@@ -18,6 +18,7 @@ class PlayerController extends Controller
         $apiData = null;
         $savedDataPlayer = null;
         $savedDataPlayerStats = null;
+        $playerStats = 1;
 
         if (Yii::$app->request->isPost && $model->load(Yii::$app->request->post())) {
             // Валидация данных
@@ -35,6 +36,7 @@ class PlayerController extends Controller
                 $steamId = $model->steamId;
                 $apiData = $modelPlayerStats->getSteamUserStats($steamId);
                 $modelPlayerStats->saveToDatabasePlayerStats($steamId, $apiData);
+                $playerStats = $modelPlayerStats->saveToDatabasePlayerStats($steamId, $apiData);
                 // Получение сохраненных данных из базы данных
                 $savedDataPlayerStats = $modelPlayerStats->getSavedDataPlayerStats($steamId);
             }
@@ -42,6 +44,7 @@ class PlayerController extends Controller
 
         return $this->render('index', [
             'model' => $model,
+            'playerStats' => $playerStats,
             'apiData' => $apiData,
             'savedDataPlayer' => $savedDataPlayer,
             'savedDataPlayerStats' => $savedDataPlayerStats,

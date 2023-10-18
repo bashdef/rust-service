@@ -29,7 +29,7 @@ $playerInfoStyle = 'margin-left: 20px;';
             </div>
         </div>
     <?php endif; ?>
-    <?php if (isset($savedDataPlayerStats)): ?>
+    <?php if ($savedDataPlayerStats !== null): ?>
         <div class="player-stats">
             <table>
                 <tr>
@@ -134,5 +134,7 @@ $playerInfoStyle = 'margin-left: 20px;';
                 </tr>
             </table>
         </div>
+    <?php elseif($playerStats == null): ?>
+        <p>Профиль игрока скрыт или игрок не имеет игру Rust на своем аккаунте.</p>
     <?php endif; ?>
 </div>

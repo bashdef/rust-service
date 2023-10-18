@@ -30,6 +30,9 @@ class UserController extends Controller
             $playerModelStats = new PlayerStats();
             $savedDataPlayer = $playerModel->getSavedDataPlayer($steamId);
             $savedDataPlayerStats = $playerModelStats->getSavedDataPlayerStats($steamId);
+            if($savedDataPlayerStats == null){
+                $savedDataPlayerStats = 1;
+            }
         }
 
         if(Yii::$app->request->isPost && $model->load(Yii::$app->request->post())){

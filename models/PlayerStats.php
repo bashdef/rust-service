@@ -124,35 +124,38 @@ class PlayerStats extends \yii\db\ActiveRecord
     public function saveToDatabasePlayerStats($steamId, $apiData)
     {
         // Сохранение данных в базу данных
-        $playerStats = new PlayerStats();
-        $playerStats->steam_id = $steamId;
-        $playerStats->deaths = $this->findValueByName($apiData, 'deaths') ?? 0;
-        $playerStats->bullet_fired = $this->findValueByName($apiData, 'bullet_fired') ?? 0;
-        $playerStats->arrow_fired = $this->findValueByName($apiData, 'arrow_fired') ?? 0;
-        $playerStats->item_drop = $this->findValueByName($apiData, 'item_drop') ?? 0;
-        $playerStats->blueprint_studied = $this->findValueByName($apiData, 'blueprint_studied') ?? 0;
-        $playerStats->death_suicide = $this->findValueByName($apiData, 'death_suicide') ?? 0;
-        $playerStats->death_fall = $this->findValueByName($apiData, 'death_fall') ?? 0;
-        $playerStats->kill_player = $this->findValueByName($apiData, 'kill_player') ?? 0;
-        $playerStats->bullet_hit_player = $this->findValueByName($apiData, 'bullet_hit_player') ?? 0;
-        $playerStats->arrow_hit_entity = $this->findValueByName($apiData, 'arrow_hit_entity') ?? 0;
-        $playerStats->harvested_stones = $this->findValueByName($apiData, 'harvested_stones') ?? 0;
-        $playerStats->harvested_cloth = $this->findValueByName($apiData, 'harvested_cloth') ?? 0;
-        $playerStats->harvested_wood = $this->findValueByName($apiData, 'harvested_wood') ?? 0;
-        $playerStats->kill_bear = $this->findValueByName($apiData, 'kill_bear') ?? 0;
-        $playerStats->kill_boar = $this->findValueByName($apiData, 'kill_boar') ?? 0;
-        $playerStats->kill_stag = $this->findValueByName($apiData, 'kill_stag') ?? 0;
-        $playerStats->kill_chicken = $this->findValueByName($apiData, 'kill_chicken') ?? 0;
-        $playerStats->kill_wolf = $this->findValueByName($apiData, 'kill_wolf') ?? 0;
-        $playerStats->headshot = $this->findValueByName($apiData, 'headshot') ?? 0;
-        $playerStats->arrow_hit_player = $this->findValueByName($apiData, 'arrow_hit_player') ?? 0;
-        $playerStats->harvested_leather = $this->findValueByName($apiData, 'harvested_leather') ?? 0;
-        $playerStats->acquired_low_grade_fuel = $this->findValueByName($apiData, 'acquired_lowgradefuel') ?? 0;
-        $playerStats->acquired_metal_ore = $this->findValueByName($apiData, 'acquired_metal.ore') ?? 0;
-        $playerStats->acquired_scrap = $this->findValueByName($apiData, 'acquired_scrap') ?? 0;
-        $playerStats->destroyed_barrels = $this->findValueByName($apiData, 'destroyed_barrels') ?? 0;
-
-        $playerStats->save();
+        if($apiData !== null){
+            $playerStats = new PlayerStats();
+            $playerStats->steam_id = $steamId;
+            $playerStats->deaths = $this->findValueByName($apiData, 'deaths') ?? 0;
+            $playerStats->bullet_fired = $this->findValueByName($apiData, 'bullet_fired') ?? 0;
+            $playerStats->arrow_fired = $this->findValueByName($apiData, 'arrow_fired') ?? 0;
+            $playerStats->item_drop = $this->findValueByName($apiData, 'item_drop') ?? 0;
+            $playerStats->blueprint_studied = $this->findValueByName($apiData, 'blueprint_studied') ?? 0;
+            $playerStats->death_suicide = $this->findValueByName($apiData, 'death_suicide') ?? 0;
+            $playerStats->death_fall = $this->findValueByName($apiData, 'death_fall') ?? 0;
+            $playerStats->kill_player = $this->findValueByName($apiData, 'kill_player') ?? 0;
+            $playerStats->bullet_hit_player = $this->findValueByName($apiData, 'bullet_hit_player') ?? 0;
+            $playerStats->arrow_hit_entity = $this->findValueByName($apiData, 'arrow_hit_entity') ?? 0;
+            $playerStats->harvested_stones = $this->findValueByName($apiData, 'harvested_stones') ?? 0;
+            $playerStats->harvested_cloth = $this->findValueByName($apiData, 'harvested_cloth') ?? 0;
+            $playerStats->harvested_wood = $this->findValueByName($apiData, 'harvested_wood') ?? 0;
+            $playerStats->kill_bear = $this->findValueByName($apiData, 'kill_bear') ?? 0;
+            $playerStats->kill_boar = $this->findValueByName($apiData, 'kill_boar') ?? 0;
+            $playerStats->kill_stag = $this->findValueByName($apiData, 'kill_stag') ?? 0;
+            $playerStats->kill_chicken = $this->findValueByName($apiData, 'kill_chicken') ?? 0;
+            $playerStats->kill_wolf = $this->findValueByName($apiData, 'kill_wolf') ?? 0;
+            $playerStats->headshot = $this->findValueByName($apiData, 'headshot') ?? 0;
+            $playerStats->arrow_hit_player = $this->findValueByName($apiData, 'arrow_hit_player') ?? 0;
+            $playerStats->harvested_leather = $this->findValueByName($apiData, 'harvested_leather') ?? 0;
+            $playerStats->acquired_low_grade_fuel = $this->findValueByName($apiData, 'acquired_lowgradefuel') ?? 0;
+            $playerStats->acquired_metal_ore = $this->findValueByName($apiData, 'acquired_metal.ore') ?? 0;
+            $playerStats->acquired_scrap = $this->findValueByName($apiData, 'acquired_scrap') ?? 0;
+            $playerStats->destroyed_barrels = $this->findValueByName($apiData, 'destroyed_barrels') ?? 0;
+            $playerStats->save();
+        } else {
+            return null;
+        }
     }
 
     public function getSavedDataPlayerStats($steamId)
@@ -163,6 +166,10 @@ class PlayerStats extends \yii\db\ActiveRecord
 
     protected function findValueByName($array, $name)
     {
+        if (empty($array)) {
+            return 'Профиль игрока скрыт';
+        }
+
         foreach ($array as $item) {
             if (isset($item['name']) && $item['name'] === $name) {
                 return $item['value'];
